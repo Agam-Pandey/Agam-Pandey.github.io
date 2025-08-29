@@ -13,6 +13,9 @@ function setStoredTheme(theme) {
 }
 function applyTheme(theme) {
   root.setAttribute('data-theme', theme);
+  // Update aria-pressed for accessibility
+  const isLight = theme === 'light';
+  themeToggle?.setAttribute('aria-pressed', String(isLight));
 }
 (function initTheme() {
   const stored = getStoredTheme();
@@ -39,10 +42,10 @@ document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click
   navToggle?.setAttribute('aria-expanded', 'false');
 }));
 
-// Typewriter effect for tagline
+// Typewriter effect for tagline (guard to avoid jitter on reflows)
 (function typewriter() {
   const el = document.getElementById('typewriter');
-  if (!el) return;
+  if (!el || el.dataset.typed === '1') return;
   const text = 'Data Science Professional | AI & Machine Learning Solutions';
   let i = 0;
   el.textContent = '';
@@ -51,6 +54,7 @@ document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click
     if (i <= text.length) requestAnimationFrame(tick);
   };
   requestAnimationFrame(tick);
+  el.dataset.typed = '1';
 })();
 
 // Intersection-based reveal animations
@@ -79,8 +83,8 @@ const parallaxEl = document.querySelector('.parallax');
 document.addEventListener('scroll', () => {
   if (!parallaxEl) return;
   const depth = parseFloat(parallaxEl.getAttribute('data-parallax-depth') || '15');
-  const offset = window.scrollY * (depth / 1000);
-  parallaxEl.style.transform = `translateY(${offset * 100}px)`;
+  const offset = Math.min(window.scrollY, document.body.offsetHeight - window.innerHeight) * (depth / 1000);
+  parallaxEl.style.transform = `translateY(${offset * 80}px)`;
 });
 
 // Tilt effect for project cards
@@ -145,7 +149,7 @@ if (yearSpan) yearSpan.textContent = String(new Date().getFullYear());
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
   });
-  const count = Math.min(120, Math.floor((width * height) / 25000));
+  const count = Math.min(140, Math.floor((width * height) / 22000));
   const particles = Array.from({ length: count }, () => ({
     x: Math.random() * width,
     y: Math.random() * height,
@@ -155,19 +159,19 @@ if (yearSpan) yearSpan.textContent = String(new Date().getFullYear());
   }));
   function step() {
     ctx.clearRect(0, 0, width, height);
-    ctx.globalAlpha = 0.8;
+    ctx.globalAlpha = 0.9;
     particles.forEach(p => {
       p.x += p.vx; p.y += p.vy;
       if (p.x < 0 || p.x > width) p.vx *= -1;
       if (p.y < 0 || p.y > height) p.vy *= -1;
-      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#7df9ff';
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#6ee7ff';
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fill();
     });
     // lightweight connections
-    ctx.globalAlpha = 0.15;
-    ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() || '#7c9cf5';
+    ctx.globalAlpha = 0.2;
+    ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() || '#8aa6ff';
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const a = particles[i], b = particles[j];

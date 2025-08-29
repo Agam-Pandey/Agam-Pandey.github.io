@@ -10,17 +10,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png" />
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
   </head>
   <body>
     <canvas id="bg-particles" aria-hidden="true"></canvas>
 
     <header class="site-header">
       <nav class="nav">
-        <a href="#home" class="logo" aria-label="Go to home">AP</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle theme">
-          <span class="toggle-icon" aria-hidden="true"></span>
-        </button>
-        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+        <a href="#home" class="logo" aria-label="Go to home">
+          <img src="favicon/favicon.svg" alt="Agam Pandey logo" width="28" height="28" />
+        </a>
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -28,6 +30,18 @@
           <li><a href="#skills">Skills</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+        <div class="theme-toggle" role="group" aria-label="Toggle color theme">
+          <span class="icon-sun" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m14.95-6.95-1.41 1.41M8.46 18.49l-1.41 1.41m0-14.1 1.41 1.41m9.09 9.19 1.41 1.41" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <button id="theme-toggle" class="slider" aria-label="Toggle color theme" title="Toggle theme">
+            <span class="toggle-icon" aria-hidden="true"></span>
+          </button>
+          <span class="icon-moon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.79A9 9 0 1 1 11.21 3c.24 0 .48.01.71.04A7 7 0 0 0 21 12a7.1 7.1 0 0 0 0 .79z" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+          </span>
+        </div>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
       </nav>
     </header>
 
@@ -46,7 +60,9 @@
             </div>
           </div>
           <div class="hero-visual parallax" data-parallax-depth="20" aria-hidden="true">
-            <div class="neural-grid"></div>
+            <div class="hero-image glass-wrap">
+              <img src="assets/img/hero.png" alt="Abstract AI tech illustration" />
+            </div>
           </div>
         </div>
         <div class="cursor-glow" aria-hidden="true"></div>
@@ -55,50 +71,46 @@
       <section id="about" class="section about" aria-label="About">
         <div class="container">
           <h2 class="section-title">About</h2>
-          <div class="about-grid">
+          <div class="about-grid about-two">
             <div class="card glass reveal">
-              <h3>Bio</h3>
-              <p>
-                A Data Science professional with experience in predictive modeling, analytics, and customer-focused ML solutions. Skilled in Python, SQL, Power BI, and ML frameworks, with a strong track record of solving complex problems, enhancing decision-making, and driving operational efficiency through cross-functional collaboration.
-              </p>
-            </div>
-            <div class="card glass reveal">
-              <h3>Education</h3>
-              <ul class="timeline">
+              <h3><span class="emoji" aria-hidden="true">🎓</span> Education</h3>
+              <ul class="timeline lined">
                 <li>
+                  <div class="node"></div>
                   <div class="time">2023–2025</div>
-                  <div class="desc"><strong>PGDM – Big Data Analytics</strong>, Goa Institute of Management</div>
+                  <div class="desc"><strong>PGDM – Big Data Analytics</strong><br/>Goa Institute of Management</div>
                 </li>
                 <li>
+                  <div class="node"></div>
                   <div class="time">2015–2019</div>
-                  <div class="desc"><strong>B.Tech – ECE</strong>, Galgotias College</div>
+                  <div class="desc"><strong>B.Tech – ECE</strong><br/>Galgotias College</div>
                 </li>
               </ul>
             </div>
             <div class="card glass reveal">
-              <h3>Experience</h3>
-              <ul class="experience">
-                <li class="xp-item">
-                  <div class="xp-header">
-                    <span class="role">Analyst – Dexur</span>
-                    <span class="period">Apr 2025 – Jun 2025</span>
+              <h3><span class="emoji" aria-hidden="true">💼</span> Experience</h3>
+              <ul class="timeline lined">
+                <li>
+                  <div class="node"></div>
+                  <div class="time">Apr 2025 – Jun 2025</div>
+                  <div class="desc"><strong>Analyst – Dexur</strong>
+                    <ul class="bullets compact">
+                      <li>Led analytics for 39 US hospitals; aligned C‑Suite KPIs.</li>
+                      <li>Optimized ERR using ML models.</li>
+                      <li>Coordinated SaaS rollout cross‑functionally.</li>
+                    </ul>
                   </div>
-                  <ul class="bullets">
-                    <li>Led analytics & client success for 39 US hospitals, aligning strategic KPIs with C‑Suite.</li>
-                    <li>Optimized ERR calculations with ML models.</li>
-                    <li>Coordinated cross-functional workflows for SaaS rollout, accelerating GTM.</li>
-                  </ul>
                 </li>
-                <li class="xp-item">
-                  <div class="xp-header">
-                    <span class="role">Data Analytics Intern – NASSCOM</span>
-                    <span class="period">May 2024 – Sep 2024</span>
+                <li>
+                  <div class="node"></div>
+                  <div class="time">May 2024 – Sep 2024</div>
+                  <div class="desc"><strong>Data Analytics Intern – NASSCOM</strong>
+                    <ul class="bullets compact">
+                      <li>BERT + NLP sentiment for marketing insights.</li>
+                      <li>Selenium + Python ETL to automate data entry.</li>
+                      <li>Live Power BI dashboards over 6 years of data.</li>
+                    </ul>
                   </div>
-                  <ul class="bullets">
-                    <li>Analyzed Twitter data with BERT + NLP for sentiment to refine digital marketing.</li>
-                    <li>Built ETL pipelines using Selenium + Python, reducing manual data entry.</li>
-                    <li>Developed real-time Power BI dashboards consolidating 6 years of data.</li>
-                  </ul>
                 </li>
               </ul>
             </div>
@@ -110,28 +122,59 @@
         <div class="container">
           <h2 class="section-title">Portfolio</h2>
           <div class="cards-grid">
-            <article class="card project tilt reveal" tabindex="0" data-project='{"title":"AI-Driven Workflow Optimization","tagline":"Automation & Efficiency with AI","details":["Developed agentic AI workflow for article summarization, fine-tuned BART (HuggingFace).","Engineered YOLOv8-based real-time tracking for security monitoring, boosting accuracy.","Designed CNN-ViT pipeline for automated image captioning, reducing manual processing."]}'>
+            <article class="card project tilt reveal">
               <h3>AI-Driven Workflow Optimization</h3>
               <p class="tag">Automation & Efficiency with AI</p>
-              <button class="btn ghost open-modal" aria-label="Open details">View Details</button>
+              <ul class="bullets">
+                <li>Agentic AI workflow; fine-tuned BART for summarization.</li>
+                <li>YOLOv8 real-time tracking for security monitoring.</li>
+                <li>CNN‑ViT pipeline for automated captioning.</li>
+              </ul>
+              <div class="links">
+                <a class="btn ghost" href="https://github.com/Agam-Pandey/AI-Automation-Workflow" target="_blank" rel="noopener">GitHub</a>
+                <button class="btn open-modal" aria-label="Open details" data-project='{"title":"AI-Driven Workflow Optimization","tagline":"Automation & Efficiency with AI","details":["Developed agentic AI workflow for article summarization, fine-tuned BART (HuggingFace).","Engineered YOLOv8-based real-time tracking for security monitoring, boosting accuracy.","Designed CNN-ViT pipeline for automated image captioning, reducing manual processing."]}'>Details</button>
+              </div>
             </article>
 
-            <article class="card project tilt reveal" tabindex="0" data-project='{"title":"Cold Email Generator","tagline":"Real-time job data extraction & personalization","details":["Built generator leveraging GROQ API + LangChain for real-time job data extraction.","Automated email personalization with ChromaDB vector database integration."]}'>
+            <article class="card project tilt reveal">
               <h3>Cold Email Generator</h3>
               <p class="tag">Real-time job data extraction & personalization</p>
-              <button class="btn ghost open-modal" aria-label="Open details">View Details</button>
+              <ul class="bullets">
+                <li>GROQ API + LangChain for job data extraction.</li>
+                <li>Personalization via ChromaDB vectors.</li>
+              </ul>
+              <div class="links">
+                <a class="btn ghost" href="https://github.com/Agam-Pandey/Cold-Email-Generator" target="_blank" rel="noopener">GitHub</a>
+                <button class="btn open-modal" aria-label="Open details" data-project='{"title":"Cold Email Generator","tagline":"Real-time job data extraction & personalization","details":["Built generator leveraging GROQ API + LangChain for real-time job data extraction.","Automated email personalization with ChromaDB vector database integration."]}'>Details</button>
+              </div>
             </article>
 
-            <article class="card project tilt reveal" tabindex="0" data-project='{"title":"RAG Chatbot using LLM","tagline":"Retrieval-Augmented Generation for factual accuracy","details":["Built end-to-end RAG pipeline using FAISS & LangChain → reduced hallucinations.","Optimized retrieval with vector databases for relevance & efficiency.","Designed modular ML pipeline with Docker & Kubernetes → scalable deployment.","Evaluated RAG model with LLM-as-judge → improved factual accuracy by 85%."]}'>
+            <article class="card project tilt reveal">
               <h3>RAG Chatbot using LLM</h3>
               <p class="tag">Retrieval-Augmented Generation for factual accuracy</p>
-              <button class="btn ghost open-modal" aria-label="Open details">View Details</button>
+              <ul class="bullets">
+                <li>End-to-end RAG with FAISS & LangChain.</li>
+                <li>Docker + Kubernetes for scalable deploy.</li>
+                <li>LLM-as-judge evaluation boosted factuality 85%.</li>
+              </ul>
+              <div class="links">
+                <span class="pill soon">Coming Soon</span>
+                <button class="btn open-modal" aria-label="Open details" data-project='{"title":"RAG Chatbot using LLM","tagline":"Retrieval-Augmented Generation for factual accuracy","details":["Built end-to-end RAG pipeline using FAISS & LangChain → reduced hallucinations.","Optimized retrieval with vector databases for relevance & efficiency.","Designed modular ML pipeline with Docker & Kubernetes → scalable deployment.","Evaluated RAG model with LLM-as-judge → improved factual accuracy by 85%."]}'>Details</button>
+              </div>
             </article>
 
-            <article class="card project tilt reveal" tabindex="0" data-project='{"title":"Credit Card Fraud Detection","tagline":"High-accuracy fraud prediction models","details":["Built fraud detection models with XGBoost, LightGBM across 284K+ transactions.","Applied SMOTE to fix class imbalance, boosting detection robustness.","Achieved AUC 0.93–0.97 through cross-validation for reliable fraud prediction."]}'>
+            <article class="card project tilt reveal">
               <h3>Credit Card Fraud Detection</h3>
               <p class="tag">High-accuracy fraud prediction models</p>
-              <button class="btn ghost open-modal" aria-label="Open details">View Details</button>
+              <ul class="bullets">
+                <li>XGBoost/LightGBM over 284K+ transactions.</li>
+                <li>SMOTE improved class balance.</li>
+                <li>AUC 0.93–0.97 via cross-validation.</li>
+              </ul>
+              <div class="links">
+                <a class="btn ghost" href="https://github.com/Agam-Pandey/Credit-Card-Fraud-Detection" target="_blank" rel="noopener">GitHub</a>
+                <button class="btn open-modal" aria-label="Open details" data-project='{"title":"Credit Card Fraud Detection","tagline":"High-accuracy fraud prediction models","details":["Built fraud detection models with XGBoost, LightGBM across 284K+ transactions.","Applied SMOTE to fix class imbalance, boosting detection robustness.","Achieved AUC 0.93–0.97 through cross-validation for reliable fraud prediction."]}'>Details</button>
+              </div>
             </article>
           </div>
         </div>
@@ -206,7 +249,7 @@
 
     <footer class="site-footer">
       <div class="container">
-        <p>© <span id="year"></span> Agam Pandey • All rights reserved.</p>
+        <p>© 2025 Agam Pandey | Data Science Portfolio</p>
       </div>
     </footer>
 
