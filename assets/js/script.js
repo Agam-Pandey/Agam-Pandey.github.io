@@ -14,8 +14,8 @@ function setStoredTheme(theme) {
 function applyTheme(theme) {
   root.setAttribute('data-theme', theme);
   // Update aria-pressed for accessibility
-  const isLight = theme === 'light';
-  themeToggle?.setAttribute('aria-pressed', String(isLight));
+  const isDark = theme === 'dark';
+  themeToggle?.setAttribute('aria-pressed', String(isDark));
 }
 (function initTheme() {
   const stored = getStoredTheme();
@@ -25,7 +25,7 @@ function applyTheme(theme) {
 })();
 
 themeToggle?.addEventListener('click', () => {
-  const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   applyTheme(next);
   setStoredTheme(next);
 });
